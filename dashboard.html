@@ -1,294 +1,102 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Gattini project - Dashboard</title>
-        <link href="css/reset.css" type="text/css" rel="stylesheet" />
-        <link href="css/common.css" type="text/css" rel="stylesheet" />
-        <link href="css/dashboard.css" type="text/css" rel="stylesheet" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charset="UTF-8">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-
-        <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-        
-
-    </head>
-    <body>
-        <header>
-            <div class="logo-box">
-                <img class="logo" srcset="
+<head>
+    <title>Gattini project - Dashboard</title>
+    <link href="css/reset.css" type="text/css" rel="stylesheet" />
+    <link href="css/common.css" type="text/css" rel="stylesheet" />
+    <link href="css/dashboard.css" type="text/css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+</head>
+<body>
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+    <header>
+        <div class="logo-box">
+            <img class="logo" srcset="
                     assets/img/logo@2x.png 2x,
-                    assets/img/logo.png 1x"
-                    src="assets/img/logo.png" alt="Gattini Logo" />
-                <h1>Gattini</h1>
-            </div>
-            <div class="tools">
-                <div class="icons-tool">
-                    <span title="Search a cat">
+                    assets/img/logo.png 1x" src="assets/img/logo.png" alt="Gattini Logo" />
+            <h1>Gattini</h1>
+        </div>
+        <div class="tools">
+            <div class="icons-tool">
+                <span title="Search a cat">
+                    <nav class="navbar">
                         <i class="icon icon-search"></i>
-                    </span>
-                    <span title="Helpdesk">
-                        <i class="icon icon-help"></i>
-                    </span>
-                    <span title="Notifications">
-                        <div class="notification-number">11</div>
-                        <i class="icon icon-bell"></i>
-                    </span>
-                </div>
-                <div class="account-tools" >
-                    <img class="avatar" src="assets/img/avatar-head.png" alt="Serati Ma" title="Serati Ma" />
-                    <strong class="user-name">Serati Ma</strong>
-                    <span title="Change Language">
-                        <i class="icon icon-language"></i>
+                        <!-- Search box nascosto di default -->
+                        <div class="search-box" style="display: none;">
+                          <input type="text" class="search-input" placeholder="Cerca...">
+                          <button class="search-button">
+                            <i class="icon icon-search"></i>
+                          </button>
+                        </div>
+                      </nav>                  
+                </span>
+                <div class="tools">
+                    <span class="icon icon-add" title="Aggiungi nuova card">
+                        📄
                     </span>
                 </div>
+                <span title="Likes">
+                   <strong class="user-likes">Mostra preferiti</strong>
+                </span>
+                <span title="Helpdesk">
+                    <i class="icon icon-help"></i>
+                </span>
+                <span title="Notifications">
+                    <div class="notification-number">11</div>
+                    <i class="icon icon-bell"></i>
+                </span>
             </div>
-        </header>
-        <div class="main-container">
-            <aside>
-                <ul>
-                    <li>
-                        <a href="index.html">
-                            <i class="icon icon-dashboard"  title="Dashboard"></i>
-                            Dashboard
-                        </a>
-                        <i class="icon icon-chevron"  title="Open block"></i>
-                    </li>
-                    <li>
-                        <a href="index.html">
-                            <i class="icon icon-profile" title="Profilo"></i>
-                            Profile
-                        </a>
-                        <i class="icon icon-chevron"  title="Open block"></i>
-                    </li>
-                    <li>
-                        <a href="index.html">
-                            <i class="icon icon-menu" title="Show Menu"></i>
-                            
-                        </a>
-                    </li>
-                </ul>
-            </aside>
-            <div class="main-content">
-                <div class="cards-container">
-                    <!-- single card start -->
-                    <div class="cat-card">
-                        <img class="avatar" srcset="
-                        assets/img/cat-A@2x.jpg 2x,
-                        assets/img/cat-A.jpg 1x"
-                        src="assets/img/cat-A.jpg" alt="MEEAAAOOOWWW" />
-                        <div class="card-info">
-                            <h2>
-                                Ali play
-                                <i title="Remove Like :(" class="icon icon-heart-full"></i>
-                            </h2>
-                            <p class="description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultrices erat nec metus fermentum gravida.</p>
-                            <div class="status">
-                                <span>
-                                    Just now
-                                </span>
-                                <div>
-                                    <img class="avatar" src="assets/img/Avatar-1.png" alt="avatar1" />
-                                    <img class="avatar" src="assets/img/Avatar-2.png" alt="avatar 2" />
-                                    <img class="avatar" src="assets/img/Avatar-3.png" alt="avatar 3" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single card end -->
-                    <!-- single card start -->
-                    <div class="cat-card">
-                        <img class="avatar" srcset="
-                        assets/img/cat-B@2x.jpg 2x,
-                        assets/img/cat-B.jpg 1x"
-                        src="assets/img/cat-B.jpg" alt="MEEAAAOOOWWW" />
-                        <div class="card-info">
-                            <h2>
-                                Angular
-                                <i title="Give me a Like!" class="icon icon-heart-outline"></i>
-                            </h2>
-                            <p class="description">
-                                Lorem ipsum dolor sit amet, </p>
-                            <div class="status">
-                                <span>
-                                    Just now
-                                </span>
-                                <div>
-                                    <img class="avatar" src="assets/img/Avatar-1.png" alt="avatar1" />
-                                    <img class="avatar" src="assets/img/Avatar-2.png" alt="avatar 2" />
-                                    <img class="avatar" src="assets/img/Avatar-3.png" alt="avatar 3" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single card end -->
-                    <!-- single card start -->
-                    <div class="cat-card">
-                        <img class="avatar" srcset="
-                        assets/img/cat-C@2x.jpg 2x,
-                        assets/img/cat-C.jpg 1x"
-                        src="assets/img/cat-C.jpg" alt="MEEAAAOOOWWW" />
-                        <div class="card-info">
-                            <h2>
-                                Ant Design
-                                <i title="Remove Like :(" class="icon icon-heart-full"></i>
-                            </h2>
-                            <p class="description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultrices erat nec metus fermentum gravida.</p>
-                            <div class="status">
-                                <span>
-                                    10 hours ago
-                                </span>
-                                <div>
-                                    <img class="avatar" src="assets/img/Avatar-1.png" alt="avatar1" />
-                                    <img class="avatar" src="assets/img/Avatar-2.png" alt="avatar 2" />
-                                    <img class="avatar" src="assets/img/Avatar-3.png" alt="avatar 3" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single card end -->
-                    <!-- single card start -->
-                    <div class="cat-card">
-                        <img class="avatar" srcset="
-                        assets/img/cat-D@2x.jpg 2x,
-                        assets/img/cat-D.jpg 1x"
-                        src="assets/img/cat-D.jpg" alt="MEEAAAOOOWWW" />
-                        <div class="card-info">
-                            <h2>
-                                Ant Design Pro
-                                <i title="Give me a Like!" class="icon icon-heart-outline"></i>
-                            </h2>
-                            <p class="description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultrices erat nec metus fermentum gravida.</p>
-                            <div class="status">
-                                <span>
-                                    Just now
-                                </span>
-                                <div>
-                                    <img class="avatar" src="assets/img/Avatar-1.png" alt="avatar1" />
-                                    <img class="avatar" src="assets/img/Avatar-2.png" alt="avatar 2" />
-                                    <img class="avatar" src="assets/img/Avatar-3.png" alt="avatar 3" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single card end -->
-                    <!-- single card start -->
-                    <div class="cat-card">
-                        <img class="avatar" srcset="
-                        assets/img/cat-E@2x.jpg 2x,
-                        assets/img/cat-E.jpg 1x"
-                        src="assets/img/cat-E.jpg" alt="MEEAAAOOOWWW" />
-                        <div class="card-info">
-                            <h2>
-                                Bootstrap
-                                <i title="Give me a Like!" class="icon icon-heart-outline"></i>
-                            </h2>
-                            <p class="description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultrices erat nec metus fermentum gravida.</p>
-                            <div class="status">
-                                <span>
-                                    Yesterday
-                                </span>
-                                <div>
-                                    <img class="avatar" src="assets/img/Avatar-1.png" alt="avatar1" />
-                                    <img class="avatar" src="assets/img/Avatar-2.png" alt="avatar 2" />
-                                    <img class="avatar" src="assets/img/Avatar-3.png" alt="avatar 3" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single card end -->
-                    <!-- single card start -->
-                    <div class="cat-card">
-                        <img class="avatar" srcset="
-                        assets/img/cat-F@2x.jpg 2x,
-                        assets/img/cat-F.jpg 1x"
-                        src="assets/img/cat-F.jpg" alt="MEEAAAOOOWWW" />
-                        <div class="card-info">
-                            <h2>
-                                React more long text more long text more long text
-                                <i title="Remove Like :(" class="icon icon-heart-full"></i>
-                            </h2>
-                            <p class="description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                            <div class="status">
-                                <span>
-                                    Just now
-                                </span>
-                                <div>
-                                    <img class="avatar" src="assets/img/Avatar-1.png" alt="avatar1" />
-                                    <img class="avatar" src="assets/img/Avatar-2.png" alt="avatar 2" />
-                                    <img class="avatar" src="assets/img/Avatar-3.png" alt="avatar 3" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single card end -->
-                    <!-- single card start -->
-                    <div class="cat-card">
-                        <img class="avatar" srcset="
-                        assets/img/cat-G@2x.jpg 2x,
-                        assets/img/cat-G.jpg 1x"
-                        src="assets/img/cat-G.jpg" alt="MEEAAAOOOWWW" />
-                        <div class="card-info">
-                            <h2>
-                                Vue
-                                <i title="Give me a Like!" class="icon icon-heart-outline"></i>
-                            </h2>
-                            <p class="description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultrices erat nec metus fermentum gravida.</p>
-                            <div class="status">
-                                <span>
-                                    Just now
-                                </span>
-                                <div>
-                                    <img class="avatar" src="assets/img/Avatar-1.png" alt="avatar1" />
-                                    <img class="avatar" src="assets/img/Avatar-2.png" alt="avatar 2" />
-                                    <img class="avatar" src="assets/img/Avatar-3.png" alt="avatar 3" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single card end -->
-                    <!-- single card start -->
-                    <div class="cat-card">
-                        <img class="avatar" srcset="
-                        assets/img/cat-H@2x.jpg 2x,
-                        assets/img/cat-H.jpg 1x"
-                        src="assets/img/cat-H.jpg" alt="MEEAAAOOOWWW" />
-                        <div class="card-info">
-                            <h2>
-                                WebPack
-                                <i title="Give me a Like!" class="icon icon-heart-outline"></i>
-                            </h2>
-                            <p class="description">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ultrices erat nec metus fermentum gravida.</p>
-                            <div class="status">
-                                <span>
-                                    Just now
-                                </span>
-                                <div>
-                                    <img class="avatar" src="assets/img/Avatar-1.png" alt="avatar1" />
-                                    <img class="avatar" src="assets/img/Avatar-2.png" alt="avatar 2" />
-                                    <img class="avatar" src="assets/img/Avatar-3.png" alt="avatar 3" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single card end -->
-
-                    
-                
-                </div>
+            <div class="account-tools">
+                <img class="avatar" src="assets/img/avatar-head.png" alt="Serati Ma" title="Serati Ma" />
+                <strong class="user-name">Serati Ma</strong>
+                <span title="Change Language">
+                    <i class="icon icon-language"></i>
+                </span>
             </div>
         </div>
-        
-    </body>
+    </header>
+    <div class="main-container">
+        <aside>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <i class="icon icon-dashboard" title="Dashboard"></i>
+                        Dashboard
+                    </a>
+                    <i class="icon icon-chevron" title="Open block"></i>
+                </li>
+                <li>
+                    <a href="index.html">
+                        <i class="icon icon-profile" title="Profilo"></i>
+                        Profile
+                    </a>
+                    <i class="icon icon-chevron" title="Open block"></i>
+                </li>
+                <li>
+                    <a href="index.html">
+                        <i class="icon icon-menu" title="Show Menu"></i>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        <div class="main-content">
+            <div class="cards-container">
+            </div>
+        </div>
+    </div>
+    <script src="js/dashboard.js"></script>
+</body>
+
 </html>

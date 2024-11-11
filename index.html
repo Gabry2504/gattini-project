@@ -1,89 +1,87 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Gattini project - Home page</title>
-        <link href="css/reset.css" type="text/css" rel="stylesheet" />
-        <link href="css/common.css" type="text/css" rel="stylesheet" />
-        <link href="css/styles-home.css" type="text/css" rel="stylesheet" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charset="UTF-8">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-        <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-        
-    </head>
-    <body>
-        <div class="home-container">
-            <div class="home-bg">
-
-            </div>
-            <div class="home-form-box">
-                <i class="icon icon-world"></i>
-                <div class="container">
-                    <div class="logo-box">
-                        <div class="logo">
-                            <img srcset="
-                                assets/img/logo@2x.png 2x,
-                                assets/img/logo.png 1x"
-                                src="assets/img/logo.png" alt="Gattini Logo" />
-                            <h1>Gattini</h1>
-                        </div>
-                        <div class="claim">Bei gattini dal 1982</div>
+<head>
+    <title>Gattini project - Home page</title>
+    <link href="css/reset.css" type="text/css" rel="stylesheet" />
+    <link href="css/common.css" type="text/css" rel="stylesheet" />
+    <link href="css/styles-home.css" type="text/css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png" />
+</head>
+<body>
+    <div class="home-container">
+        <div class="home-bg"></div>
+        <div class="home-form-box">
+            <i class="icon icon-world"></i>
+            <div class="container">
+                <div class="logo-box">
+                    <div class="logo">
+                        <img srcset="assets/img/logo@2x.png 2x, assets/img/logo.png 1x" src="assets/img/logo.png"
+                            alt="Gattini Logo" />
+                        <h1>Gattini</h1>
                     </div>
-                    <div class="center-box">
-                        <nav>
-                            <a href="#" class="active">Login</a>
-                            <a href="signup.html">Sign up</a>
-                        </nav>
-
-                        <div class="form-box">
-                            <form action="dashboard.html">
-                                <fieldset>
-                                    <i class="icon icon-user"></i>
-                                    <input type="text" placeholder="username: admin or user "/>
-                                </fieldset>
-                                <fieldset>
-                                    <i class="icon icon-lock"></i>
-                                    <input type="password" placeholder="Password: enter your password "/>
-                                </fieldset>
-
-                                <fieldset class="remember">
-                                    <label>
-                                        <input type="checkbox" checked />
-                                        Remember me
-                                    </label>
-                                    <a href="#">Forgot?</a>
-                                </fieldset>
-
-                                <div class="button-set">
-                                    <button class="c-button solid">Sign in</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <footer>
-                        <div>
-                            <a href="#">Ant Design Pro</a>
-                            <a href="#"><i class="icon icon-github"></i></a>
-                            <a href="#">Ant Design</a>
-                        </div>
-                        <div>
-                            Copyright ©2020 Produced by Ant Finance Experience Technology Department
-                        </div>
-                        <div class="help">
-                            ?
-                        </div>
-                    </footer>
+                    <div class="claim">Bei gattini dal 1982</div>
                 </div>
+                <div class="center-box">
+                    <nav>
+                        <a href="#" class="active">Login</a>
+                        <a href="signup.html">Sign up</a>
+                    </nav>
+                    <div class="form-box">
+                        <form id="loginForm" action="dashboard.html">
+                            <fieldset>
+                                <i class="icon icon-user"></i>
+                                <input id="userInput" type="text" placeholder="username: admin or user " />
+                                <p id="userError" class="errors">
+                                    User must contain 'gattini' and max 20 char
+                                </p>
+                            </fieldset>
+                            <fieldset>
+                                <i class="icon icon-lock"></i>
+                                <input id="passwordInput" type="password" placeholder="Password: enter your password " />
+                                <p id="passwordError" class="errors">
+                                    Password must have between 8 and 20 char and a special char
+                                </p>
+                            </fieldset>
+                            <fieldset class="remember">
+                                <label>
+                                    <input id="rememberMe" type="checkbox" checked />
+                                    Remember me
+                                </label>
+                                <a href="#">Forgot?</a>
+                            </fieldset>
+                            <div class="button-set">
+                                <button id="submitButton" class="c-button solid">Sign in</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <footer>
+                    <div>
+                        <a href="#">Ant Design Pro</a>
+                        <a href="#"><i class="icon icon-github"></i></a>
+                        <a href="#">Ant Design</a>
+                    </div>
+                    <div>
+                        Copyright ©2020 Produced by Ant Finance Experience Technology
+                        Department
+                    </div>
+                    <div class="help">?</div>
+                </footer>
             </div>
-
         </div>
+    </div>
 
-        <!-- TEST 
+    <!-- TEST 
         <div class="box" style="width: 200px;">
             <h1>Hello world!</h1>
         </div>
@@ -92,5 +90,7 @@
             assets/img/cover-home.jpg 1x"
             src="assets/img/cover-home.jpg" />
         -->
-    </body>
+        <script src="js/index.js"></script>
+</body>
+
 </html>

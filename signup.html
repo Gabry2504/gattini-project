@@ -1,90 +1,89 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Gattini project - Sign Up</title>
-        <link href="css/reset.css" type="text/css" rel="stylesheet" />
-        <link href="css/common.css" type="text/css" rel="stylesheet" />
-        <link href="css/styles-home.css" type="text/css" rel="stylesheet" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charset="UTF-8">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-        
-        <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-        
-    </head>
-    <body>
-        <div class="home-container">
-            <div class="home-bg">
 
-            </div>
-            <div class="home-form-box">
-                <i class="icon icon-world"></i>
-                <div class="container">
-                    <div class="logo-box">
-                        <div class="logo">
-                            <img srcset="
-                                assets/img/logo@2x.png 2x,
-                                assets/img/logo.png 1x"
-                                src="assets/img/logo.png" alt="Gattini Logo" />
-                            <h1>Gattini</h1>
-                        </div>
-                        <div class="claim">Bei gattini dal 1982</div>
-                    </div>
-                    <div class="center-box">
-                        <nav>
-                            <a href="index.html">Login</a>
-                            <a href="#" class="active">Sign up</a>
-                        </nav>
+<head>
+    <title>Gattini project - Sign Up</title>
+    <link href="css/reset.css" type="text/css" rel="stylesheet" />
+    <link href="css/common.css" type="text/css" rel="stylesheet" />
+    <link href="css/styles-home.css" type="text/css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
 
-                        <div class="form-box">
-                            <form action="dashboard.html">
-                                <fieldset>
-                                    <i class="icon icon-phone"></i>
-                                    <input type="tel" placeholder="Phone number "/>
-                                </fieldset>
-                                <fieldset class="get-code">
-                                    <i class="icon icon-lock"></i>
-                                    <input type="text" placeholder="Verification Code "/>
-                                    <button class="c-button outline">Get Code</button>
-                                </fieldset>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
 
-                                <fieldset class="remember">
-                                    <label>
-                                        <input type="checkbox" checked />
-                                        Remember me
-                                    </label>
-                                    <a href="#">Forgot?</a>
-                                </fieldset>
+</head>
 
-                                <div class="button-set">
-                                    <button class="c-button solid">Sign in</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <footer>
-                        <div>
-                            <a href="#">Ant Design Pro</a>
-                            <a href="#"><i class="icon icon-github"></i></a>
-                            <a href="#">Ant Design</a>
-                        </div>
-                        <div>
-                            Copyright ©2020 Produced by Ant Finance Experience Technology Department
-                        </div>
-                        <div class="help">
-                            ?
-                        </div>
-                    </footer>
-                </div>
-            </div>
+<body>
+    <div class="home-container">
+        <div class="home-bg">
 
         </div>
+        <div class="home-form-box">
+            <i class="icon icon-world"></i>
+            <div class="container">
+                <div class="logo-box">
+                    <div class="logo">
+                        <img srcset="
+                                assets/img/logo@2x.png 2x,
+                                assets/img/logo.png 1x" src="assets/img/logo.png" alt="Gattini Logo" />
+                        <h1>Gattini</h1>
+                    </div>
+                    <div class="claim">Bei gattini dal 1982</div>
+                </div>
+                <div class="center-box">
+                    <nav>
+                        <a href="index.html">Login</a>
+                        <a href="#" class="active">Sign up</a>
+                    </nav>
 
-        <!-- TEST 
+                    <div class="form-box">
+                        <form id="registerForm" action="dashboard.html">
+                            <fieldset>
+                                <i class="icon icon-phone"></i>
+                                <input id="numberInput" type="tel" placeholder="Phone number" />
+                                <p id="numberError" class="errors">Insert only 10 numbers</p>
+                            </fieldset>
+                            <fieldset class="get-code">
+                                <i class="icon icon-lock"></i>
+                                <input id="codeInput" type="text" placeholder="Verification Code" />
+                                <button id="getCode" class="c-button outline">Get Code</button>
+                            </fieldset>
+                            <p id="generatedCode" class="generated-code"></p> <!-- Messaggio temporaneo per il codice generato -->
+                            <p id="codeError" class="errors">The code is incorrect or expired</p>
+                            <p id="codeError2" class="errors">Insert a number to receive a code</p>
+                            <p id="codeCountdown" class="countdown-text"></p>
+                            <div class="button-set">
+                                <button class="c-button solid">Sign in</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <footer>
+                    <div>
+                        <a href="#">Ant Design Pro</a>
+                        <a href="#"><i class="icon icon-github"></i></a>
+                        <a href="#">Ant Design</a>
+                    </div>
+                    <div>
+                        Copyright ©2020 Produced by Ant Finance Experience Technology Department
+                    </div>
+                    <div class="help">
+                        ?
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- TEST 
         <div class="box" style="width: 200px;">
             <h1>Hello world!</h1>
         </div>
@@ -93,5 +92,7 @@
             assets/img/cover-home.jpg 1x"
             src="assets/img/cover-home.jpg" />
         -->
-    </body>
+    <script src="js/signup.js"></script>
+</body>
+
 </html>
