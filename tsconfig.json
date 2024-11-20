@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es2016",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "module": "esnext",                                  /* Specify what module code is generated. */
+    "outDir": "out",                                     /* Specify an output folder for all emitted files. */
+    "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
+    "strict": true,                                      /* Enable all strict type-checking options. */
+    "sourceMap": true,                                   /* Create source map files for emitted JavaScript files. */
+    "lib": ["dom", "es2016"],
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}

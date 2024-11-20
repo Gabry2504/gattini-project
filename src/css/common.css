@@ -45,65 +45,65 @@ a {
     background-size: 15px 15px;
     background-repeat: no-repeat;
     &.icon-user {
-        background-image: url('../assets/icons/icon-user.png');
+        background-image: url('../../assets/icons/icon-user.png');
     }
     &.icon-world {
-        background-image: url('../assets/icons/icon-global.png');
+        background-image: url('../../assets/icons/icon-global.png');
     }
     &.icon-lock {
-        background-image: url('../assets/icons/icon-lock.png');
+        background-image: url('../../assets/icons/icon-lock.png');
     }
     &.icon-phone {
-        background-image: url('../assets/icons/icon-phone.png');
+        background-image: url('../../assets/icons/icon-phone.png');
     }
     &.icon-mail {
-        background-image: url('../assets/icons/icon-mail.png');
+        background-image: url('../../assets/icons/icon-mail.png');
     }
     &.icon-github {
-        background-image: url('../assets/icons/icon-github.png');
+        background-image: url('../../assets/icons/icon-github.png');
     }
     &.icon-dashboard {
-        background-image: url('../assets/icons/icon-dashboard.png');
+        background-image: url('../../assets/icons/icon-dashboard.png');
     }
     &.icon-profile {
-        background-image: url('../assets/icons/icon-profile.png');
+        background-image: url('../../assets/icons/icon-profile.png');
     }
     &.icon-menu {
-        background-image: url('../assets/icons/icon-menu.png');
+        background-image: url('../../assets/icons/icon-menu.png');
     }
     &.icon-heart-full {
-        background-image: url('../assets/icons/icon-heart-full.png');
+        background-image: url('../../assets/icons/icon-heart-full.png');
         width: 24px;
         height: 24px;
         background-size: 24px 24px;
     }
     &.icon-heart-outline {
-        background-image: url('../assets/icons/icon-heart-outline.png');
+        background-image: url('../../assets/icons/icon-heart-outline.png');
         width: 24px;
         height: 24px;
         background-size: 24px 24px;
     }
     &.icon-search {
-        background-image: url('../assets/icons/icon-search.png');
+        background-image: url('../../assets/icons/icon-search.png');
     }
     &.icon-help {
-        background-image: url('../assets/icons/icon-help.png');
+        background-image: url('../../assets/icons/icon-help.png');
     }
     &.icon-bell {
-        background-image: url('../assets/icons/icon-bell.png');
+        background-image: url('../../assets/icons/icon-bell.png');
     }
     &.icon-language {
-        background-image: url('../assets/icons/icon-language.png');
+        background-image: url('../../assets/icons/icon-language.png');
     }
     &.icon-chevron {
-        background-image: url('../assets/icons/icon-chevron.png');
+        background-image: url('../../assets/icons/icon-chevron.png');
     }
 }
 /* Common styles */
 
 
 div.box {
-    background-image: url('../assets/img/cover-home.jpg');
+    background-image: url('../../assets/img/cover-home.jpg');
 
     @media (-webkit-min-device-pixel-ratio: 1) {
         border:1px solid red;
@@ -111,7 +111,7 @@ div.box {
       
     @media (-webkit-min-device-pixel-ratio: 2) {
         border:1px solid blue;
-        background-image: url('../assets/img/cover-home@2x.jpg');
+        background-image: url('../../assets/img/cover-home@2x.jpg');
     }
 
 }

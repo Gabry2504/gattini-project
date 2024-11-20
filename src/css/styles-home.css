@@ -10,12 +10,12 @@
             display: block;
             flex-basis: 47%;
             max-width: 47%;
-            background-image: url('../assets/img/cover-home.jpg');
+            background-image: url('../../assets/img/cover-home.jpg');
             background-size: cover;
             background-position: center;
 
             @media (-webkit-min-device-pixel-ratio: 2) {
-                background-image: url('../assets/img/cover-home@2x.jpg');
+                background-image: url('../../assets/img/cover-home@2x.jpg');
             }
         }
     }
