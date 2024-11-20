@@ -59,8 +59,8 @@
                 </span>
             </div>
             <div class="account-tools">
-                <img class="avatar" src="../../assets/img/avatar-head.png" alt="Serati Ma" title="Serati Ma" />
-                <strong class="user-name">Serati Ma</strong>
+                <img id="imgavatar" class="avatar" alt="Serati Ma" title="Serati Ma" />
+                <strong id="avatar-name" class="user-name"></strong>
                 <span title="Change Language">
                     <i class="icon icon-language"></i>
                 </span>
@@ -70,19 +70,48 @@
     <div class="main-container">
         <aside>
             <ul>
-                <li>
-                    <a href="index.html">
-                        <i class="icon icon-dashboard" title="Dashboard"></i>
-                        Dashboard
-                    </a>
-                    <i class="icon icon-chevron" title="Open block"></i>
+                <li class="voice-menu">
+                    <div class="voice">
+                        <span>
+                            <i class="icon icon-dashboard"  title="Dashboard"></i>
+                            Dashboard
+                        </span>
+                        <i class="icon icon-chevron"  title="Open block"></i>
+                    </div>
+                    <div class="sub-menu">
+                        <span>
+                            <a  class="user-likes">
+                                <i class="icon icon-heart-outline" title="Profilo">
+                                </i>
+                                <span>Like</span>
+                            </a>
+                        </span>
+                    </div>
                 </li>
-                <li>
-                    <a href="index.html">
-                        <i class="icon icon-profile" title="Profilo"></i>
-                        Profile
-                    </a>
-                    <i class="icon icon-chevron" title="Open block"></i>
+                <li class="voice-menu">
+                    <div class="voice">
+                        <span>
+                            <i class="icon icon-profile" title="Profilo"></i>
+                            Profile
+                        </span>
+                        <i class="icon icon-chevron"  title="Open block"></i>
+                    </div>
+                    <div class="sub-menu">
+                        <span>
+                            <a href="index.html">
+                                <i class="icon icon-lock" title="Profilo">
+                                </i>
+                                <span>Login</span>
+                            </a>
+                        </span>
+                        <span>
+                            <a href="register.html">
+                                <i class="icon icon-user" title="Profilo">
+                                </i>
+                                <span>Sign up</span>
+                            </a>
+                        </span>
+                    </div>
                 </li>
                 <li>
                     <a href="index.html">

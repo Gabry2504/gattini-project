@@ -1,4 +1,4 @@
-"use strict";
+import { CardService } from "./CardService.js";
 // Regex per controllo caratteri speciali
 const specialCharRegex = /[!@#$%^&*()_+\-=[\]{}|;':",.<>?/]/;
 // Richiamo degli ID dello user
@@ -24,7 +24,14 @@ if (loginForm) {
         };
         // Se tutti i campi sono validi invia il form
         if (isValidLogin) {
-            loginForm.submit(); // Effettua il submit se tutto è valido
+            CardService.fetchInitialData().then((res) => {
+                localStorage.setItem('user', userInput.value);
+                localStorage.setItem('imgProfile', res[0].userData.picture.thumbnail);
+                loginForm.submit(); // Effettua il submit se tutto è valido
+            }).catch(() => {
+                localStorage.setItem('imgProfile', '../../assets/img/avatar-head.png');
+                localStorage.setItem('user', 'Serati Ma');
+            });
         }
     });
 }

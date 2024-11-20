@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import { CardService } from "./CardService.js";
 import { UIManager } from "./UIManager.js";
-class LoadingScreenManager {
+export class LoadingScreenManager {
     static hideLoadingScreen() {
         const loadingScreen = document.querySelector(".loading-screen");
         const loadingOverlay = document.querySelector(".loading-overlay");
@@ -44,7 +44,7 @@ class LoadingScreenManager {
         LoadingScreenManager.hideLoadingScreen();
         // Gestione della visualizzazione preferiti
         let showOnlyFavorites = false;
-        (_b = document.querySelector(".user-likes")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
+        (_b = document.querySelectorAll(".user-likes")) === null || _b === void 0 ? void 0 : _b.forEach((n) => n.addEventListener("click", () => {
             showOnlyFavorites = !showOnlyFavorites;
             // Filtra le card preferite o mostra tutte
             const updatedCards = showOnlyFavorites
@@ -56,7 +56,16 @@ class LoadingScreenManager {
             loveButton.textContent = showOnlyFavorites
                 ? "Mostra tutte le card"
                 : "Mostra preferiti";
-        });
+        }));
+        const menuVoices = document.querySelectorAll(".voice");
+        if (menuVoices) {
+            menuVoices.forEach((menuVoice, index) => {
+                menuVoice.addEventListener("click", (e) => {
+                    var _a;
+                    (_a = menuVoice.parentElement) === null || _a === void 0 ? void 0 : _a.classList.toggle("expanded");
+                });
+            });
+        }
         // Gestione della ricerca
         (_c = document.querySelector(".icon-search")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => {
             var _a;

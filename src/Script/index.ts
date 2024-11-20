@@ -1,3 +1,6 @@
+import { CardService } from "./CardService.js";
+import { CardData } from "./models.js";
+
 // Regex per controllo caratteri speciali
 const specialCharRegex: RegExp = /[!@#$%^&*()_+\-=[\]{}|;':",.<>?/]/;
 
@@ -18,6 +21,8 @@ let isValidLogin: boolean = true;
 // Gestione del submit del form
 const loginForm: HTMLFormElement | null = document.getElementById('loginForm') as HTMLFormElement;
 
+
+
 if (loginForm) {
     loginForm.addEventListener('submit', function (event: Event) {
         event.preventDefault(); // Previene il comportamento del submit
@@ -28,11 +33,20 @@ if (loginForm) {
             username: userInput?.value || '',
             password: passwordInput?.value || '',
             rememberMe: rememberMe?.checked || false,
-        };
+        };      
 
         // Se tutti i campi sono validi invia il form
         if (isValidLogin) {
-            loginForm.submit(); // Effettua il submit se tutto è valido
+            CardService.fetchInitialData().then((res: CardData[]) => {            
+                localStorage.setItem('user', userInput.value);
+                localStorage.setItem('imgProfile', res[0].userData.picture.thumbnail);
+                loginForm.submit(); // Effettua il submit se tutto è valido
+            
+            }).catch(() => {
+                localStorage.setItem('imgProfile', '../../assets/img/avatar-head.png');
+                localStorage.setItem('user', 'Serati Ma');
+
+            });
         }
     });
 }

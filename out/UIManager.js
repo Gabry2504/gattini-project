@@ -7,9 +7,25 @@ export class UIManager {
         this.likedCards = new Set(); // Inizializza l'insieme delle card piaciute
         this.cardsData = cardsData; // Passiamo i dati delle card alla classe
     }
+    setUserName() {
+        const avatarName = document.querySelector("#avatar-name");
+        const user = localStorage.getItem("user") || "Senza nome"; // Se 'user' è null, usa una stringa vuota come fallback
+        if (avatarName) {
+            avatarName.innerHTML = user;
+        }
+    }
+    setUserImage() {
+        const avatarPicture = document.querySelector("#imgavatar");
+        const profile = localStorage.getItem("imgProfile") || '../../assets/img/avatar-head.png';
+        if (avatarPicture) {
+            avatarPicture.setAttribute("src", profile);
+        }
+    }
     renderCards(cardsData) {
         this.cardContainer.innerHTML = "";
         cardsData.forEach((card) => this.renderCard(card));
+        this.setUserName();
+        this.setUserImage();
     }
     renderCard(cardData) {
         const { catData, userData } = cardData;
@@ -25,7 +41,9 @@ export class UIManager {
         <div class="card-info">
           <h2>
             ${userData.name.title} ${userData.name.last} ${userData.name.first}
-            <i title="Like" class="icon ${this.likedCards.has(cardId) ? "icon-heart-full" : "icon-heart-outline"}"></i>
+            <i title="Like" class="icon ${this.likedCards.has(cardId)
+            ? "icon-heart-full"
+            : "icon-heart-outline"}"></i>
           </h2>
           <p class="description">Email: ${userData.email}</p>
           <div>
@@ -46,7 +64,7 @@ export class UIManager {
             </div>
           </div>
         </div>
-      `;
+       `;
         this.cardContainer.appendChild(card);
         this.setupCardEventListeners(card, cardId);
     }
@@ -66,7 +84,8 @@ export class UIManager {
                 likeIcon.classList.add("icon-heart-full");
             }
             // Se siamo nella vista "Mi piace", rimuovi la card se non è più nei preferiti
-            if ((_b = (_a = document.querySelector(".user-likes")) === null || _a === void 0 ? void 0 : _a.textContent) === null || _b === void 0 ? void 0 : _b.includes("Mostra tutte le card")) {
+            if ((_b = (_a = document
+                .querySelector(".user-likes")) === null || _a === void 0 ? void 0 : _a.textContent) === null || _b === void 0 ? void 0 : _b.includes("Mostra tutte le card")) {
                 card.remove();
             }
         });
@@ -76,7 +95,7 @@ export class UIManager {
     }
     // Nuovo metodo per rimuovere la card sia dal DOM che dai dati
     removeCardFromDataAndDOM(cardElement, cardId) {
-        const cardIndex = this.cardsData.findIndex(card => `${card.userData.email}-${card.catData.url}` === cardId);
+        const cardIndex = this.cardsData.findIndex((card) => `${card.userData.email}-${card.catData.url}` === cardId);
         if (cardIndex !== -1) {
             this.cardsData.splice(cardIndex, 1); // Rimuove la card dai dati
         }
