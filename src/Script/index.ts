@@ -21,8 +21,6 @@ let isValidLogin: boolean = true;
 // Gestione del submit del form
 const loginForm: HTMLFormElement | null = document.getElementById('loginForm') as HTMLFormElement;
 
-
-
 if (loginForm) {
     loginForm.addEventListener('submit', function (event: Event) {
         event.preventDefault(); // Previene il comportamento del submit
@@ -49,6 +47,7 @@ if (loginForm) {
             });
         }
     });
+    
 }
 
 // Validazione in tempo reale

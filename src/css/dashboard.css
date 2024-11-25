@@ -3,8 +3,8 @@ body {
     background-color: #F0F2F5;
     /*padding-top: var(--height-header);*/
     height: auto;
+    overflow-y: scroll;
 }
-
 header {
     background-color: #001529;
     height: var(--height-header);
@@ -18,24 +18,19 @@ header {
     right: 0;
     left: 0;
     z-index: 10;
-
     .logo-box {
         display: flex;
         align-items: center;
-
         .logo {
             width: 32px;
             height: 32px;
             margin-right: 12px;
         }
-
         h1 {
             display: none;
-
             @media only screen and (min-width: 450px) {
                 display: block;
             }
-
             font-family: 'Inter';
             font-size: 18px;
             font-weight: 700;
@@ -43,25 +38,21 @@ header {
             color: #fff;
         }
     }
-
     .tools {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
         align-items: center;
-
         .icons-tool {
             display: flex;
-
             span {
                 display: block;
                 margin: 0 10px;
                 position: relative;
                 cursor: pointer;
             }
-
             .notification-number {
-                padding: 1px 6px;
+                padding: 1px 9px;
                 background-color: #FF4D4F;
                 border-radius: 10px;
                 color: #fff;
@@ -69,59 +60,49 @@ header {
                 position: absolute;
                 top: -10px;
                 font-size: 13px;
-                right: -22px;
+                right: -20px;
                 line-height: 12px;
             }
-
         }
-
         .account-tools {
             margin-left: 10px;
             display: flex;
             align-items: center;
-
             .user-name {
                 margin: 0 5px;
 
                 @media only screen and (min-width: 450px) {
                     margin: 0 20px;
                 }
-
                 font-weight: 400;
                 font-size: 14px;
                 color: #fff;
                 cursor: pointer;
             }
-
             .avatar {
                 width: 24px;
                 height: 24px;
                 border-radius: 50%;
                 cursor: pointer;
             }
-
             span {
                 cursor: pointer;
             }
         }
     }
-
 }
-
 .main-container {
     display: flex;
     flex-direction: row;
     align-items: stretch;
     min-height: calc(100% - var(--height-header));
     position: relative;
-
     aside {
         display: none;
 
         @media only screen and (min-width: 768px) {
             display: flex;
         }
-
         top: var(--height-header);
         position: sticky;
         /*position: fixed;*/
@@ -134,25 +115,21 @@ header {
         flex-grow: 0;
         box-shadow: 2px 0 3px #00152932;
         height: 100%;
-
         ul {
             margin: 0;
             padding: 10px 0 0 0;
             display: flex;
             flex-direction: column;
             min-height: calc(100vh - var(--height-header));
-
             li {
                 list-style: none;
                 margin: 0 0 5px 0;
-
                 &.voice-menu {
                     .voice {
                         padding: 10px 5px 10px 20px;
                         display: flex;
                         align-items: center;
                         justify-content: space-between;
-
                         span {
                             color: #000000D9;
                             font-size: 14px;
@@ -171,7 +148,6 @@ header {
                                 margin-right: 10px;
                             }
                         }
-
                         .icon-chevron {
                             cursor: pointer;
                             padding: 10px;
@@ -179,7 +155,6 @@ header {
                             transition: all 0.24s;
                         }
                     }
-
                     .sub-menu {
                         display: none;
                     }
@@ -197,7 +172,7 @@ header {
                                 padding: 3px 25px;
                                 cursor: pointer;
                                 &:hover {
-                                    background-color: rgb(246, 242, 216);
+                                    background-color: rgb(180, 179, 179);
                                 }
                                 a {
                                     display: flex;
@@ -211,12 +186,14 @@ header {
                                         padding: 0 0 0 10px;
                                         color: black;
                                     }
+                                    .icon{
+                                        color: rgb(46, 45, 45);
+                                    }
                                 }
                             }
                         }
                     }
                 }
-
                 &:last-child {
                     border-top: 1px solid #ccc;
                     margin-top: auto;
@@ -224,7 +201,6 @@ header {
             }
         }
     }
-
     .main-content {
         padding: 40px 15px;
         width: 100%;
@@ -241,7 +217,6 @@ header {
             /*margin-left: 210px;*/
         }
     }
-
     .cards-container {
         display: flex;
         flex-direction: row;
@@ -250,7 +225,6 @@ header {
         justify-content: flex-start;
         gap: 20px;
         width: 100%;
-
         .cat-card {
             display: flex;
             flex-direction: column;
@@ -262,28 +236,23 @@ header {
             transition: all 0.2s;
             transform-origin: center;
             cursor: default;
-
             @media only screen and (min-width: 450px) {
                 flex-basis: calc(50% - 20px);
                 max-width: calc(50% - 10px);
             }
-
             @media only screen and (min-width: 1024px) {
                 flex-basis: calc(33% - 20px);
                 max-width: calc(33% - 10px);
             }
-
             @media only screen and (min-width: 1200px) {
                 flex-basis: calc(25% - 20px);
                 max-width: calc(25% - 10px);
             }
-
             &:hover {
                 transform: scale(1.03);
                 background-color: #f8f8f8;
                 box-shadow: 0 0 15px #0000002d;
             }
-
             figure {
                 border-top-right-radius: 20px;
                 border-top-left-radius: 20px;
@@ -294,7 +263,6 @@ header {
                 min-height: 150px;
                 position: relative;
                 overflow: hidden;
-
                 &::before {
                     content: "";
                     position: absolute;
@@ -309,7 +277,6 @@ header {
                     transform: scale(1.25);
                     filter: blur(3px);
                 }
-
                 &::after {
                     content: "";
                     position: absolute;
@@ -320,7 +287,6 @@ header {
                     background-color: #0000007c;
                     z-index: 2;
                 }
-
                 img {
                     position: absolute;
                     width: 100%;
@@ -329,7 +295,6 @@ header {
                     z-index: 3;
                 }
             }
-
             .card-info {
                 padding: 24px;
                 display: flex;
@@ -521,11 +486,29 @@ header {
 }
 
 .icon-add {
-    font-size: 20px;
-    margin-right: 10px;
+    z-index: 2000;
+    right: 20px;
+    bottom: 20px;
+    width: 45px;
+    height: 45px;
+    position: fixed;
+    font-size: 45px;
     cursor: pointer;
+    div{
+        text-align: center;
+        border-radius: 50%;
+        background-color: rgba(52, 116, 212, 0.514);
+        color: white;
+    }
+    &:hover{
+        text-align: center;
+        border-radius: 50%;
+        background-color: rgb(52, 116, 212);
+        color: white;
+    }
 }
 
 .icon-heart-outline:hover {
     transform: translateY(-5%);
 }
+

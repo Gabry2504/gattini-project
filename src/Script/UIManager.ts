@@ -31,10 +31,12 @@ export class UIManager {
         }
     }
     renderCards(cardsData: CardData[]): void {
+        const numberLike: HTMLElement | null = document.querySelector('.notification-number') as HTMLElement;
         this.cardContainer.innerHTML = "";
         cardsData.forEach((card) => this.renderCard(card));
         this.setUserName();
         this.setUserImage();
+        numberLike.innerHTML = `${this.cardsData.length}`;
     }
     renderCard(cardData: CardData): void {
         const { catData, userData } = cardData;
@@ -66,7 +68,7 @@ export class UIManager {
             since: ${userData.registered.date.substring(0, 4)} - 
             ${userData.gender} - 
             age: ${userData.registered.age}
-            <i title="Trash" class="icon fas fa-trash-alt"></i>
+            <i title="Trash" class="icon fas fa-trash-alt"></i> 
           </p>
           <div class="status">
             <span>${time}h ago</span>
@@ -83,9 +85,7 @@ export class UIManager {
     }
 
     setupCardEventListeners(card: HTMLElement, cardId: string): void {
-        const likeIcon = card.querySelector(
-            ".icon-heart-outline, .icon-heart-full"
-        );
+        const likeIcon = card.querySelector(".icon-heart-outline, .icon-heart-full");
         const removeIcon = card.querySelector(".fa-trash-alt");
 
         likeIcon?.addEventListener("click", () => {
@@ -108,12 +108,12 @@ export class UIManager {
                 card.remove();
             }
         });
-
         removeIcon?.addEventListener("click", () => {
             this.removeCardFromDataAndDOM(card, cardId);
+            removeIcon.dispatchEvent(new Event("remove"));
         });
     }
-
+    
     // Nuovo metodo per rimuovere la card sia dal DOM che dai dati
     removeCardFromDataAndDOM(cardElement: HTMLElement, cardId: string): void {
         const cardIndex = this.cardsData.findIndex(
@@ -123,6 +123,8 @@ export class UIManager {
             this.cardsData.splice(cardIndex, 1); // Rimuove la card dai dati
         }
         cardElement.remove(); // Rimuove la card dal DOM
+        const numberLike: HTMLElement | null = document.querySelector('.notification-number') as HTMLElement;
+        numberLike.innerHTML = `${this.cardsData.length}`;
     }
 
     isFavorite(cardData: CardData): boolean {

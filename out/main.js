@@ -36,8 +36,10 @@ export class LoadingScreenManager {
         (_a = document.querySelector(".icon-add")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => __awaiter(this, void 0, void 0, function* () {
             const newCard = yield CardService.fetchSingleCard();
             if (newCard) {
-                cardsData.push(newCard);
+                cardsData.unshift(newCard);
                 uiManager.renderCard(newCard);
+                uiManager.renderCards(cardsData);
+                scrollTo(10, 10);
             }
         }));
         // Nascondi la schermata di caricamento, se necessaria
@@ -51,11 +53,19 @@ export class LoadingScreenManager {
                 ? cardsData.filter((card) => uiManager.isFavorite(card))
                 : cardsData;
             uiManager.renderCards(updatedCards);
-            // Aggiorna il testo del pulsante "Mostra preferiti"
             const loveButton = document.querySelector(".user-likes");
-            loveButton.textContent = showOnlyFavorites
-                ? "Mostra tutte le card"
-                : "Mostra preferiti";
+            const loveButtonIcon = document.querySelector(".user-likes i");
+            const addButton = document.querySelector(".icon-add");
+            if (loveButton && showOnlyFavorites) {
+                loveButtonIcon.classList.add("icon-heart-full");
+                loveButtonIcon.classList.remove("icon-heart-outline");
+                addButton.style.visibility = "hidden";
+            }
+            else {
+                loveButtonIcon.classList.remove("icon-heart-full");
+                loveButtonIcon.classList.add("icon-heart-outline");
+                addButton.style.visibility = "visible";
+            }
         }));
         const menuVoices = document.querySelectorAll(".voice");
         if (menuVoices) {

@@ -22,10 +22,12 @@ export class UIManager {
         }
     }
     renderCards(cardsData) {
+        const numberLike = document.querySelector('.notification-number');
         this.cardContainer.innerHTML = "";
         cardsData.forEach((card) => this.renderCard(card));
         this.setUserName();
         this.setUserImage();
+        numberLike.innerHTML = `${this.cardsData.length}`;
     }
     renderCard(cardData) {
         const { catData, userData } = cardData;
@@ -53,7 +55,7 @@ export class UIManager {
             since: ${userData.registered.date.substring(0, 4)} - 
             ${userData.gender} - 
             age: ${userData.registered.age}
-            <i title="Trash" class="icon fas fa-trash-alt"></i>
+            <i title="Trash" class="icon fas fa-trash-alt"></i> 
           </p>
           <div class="status">
             <span>${time}h ago</span>
@@ -91,6 +93,7 @@ export class UIManager {
         });
         removeIcon === null || removeIcon === void 0 ? void 0 : removeIcon.addEventListener("click", () => {
             this.removeCardFromDataAndDOM(card, cardId);
+            removeIcon.dispatchEvent(new Event("remove"));
         });
     }
     // Nuovo metodo per rimuovere la card sia dal DOM che dai dati
@@ -100,6 +103,8 @@ export class UIManager {
             this.cardsData.splice(cardIndex, 1); // Rimuove la card dai dati
         }
         cardElement.remove(); // Rimuove la card dal DOM
+        const numberLike = document.querySelector('.notification-number');
+        numberLike.innerHTML = `${this.cardsData.length}`;
     }
     isFavorite(cardData) {
         const cardId = `${cardData.userData.email}-${cardData.catData.url}`;

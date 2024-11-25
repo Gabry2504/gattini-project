@@ -31,8 +31,10 @@ export class LoadingScreenManager {
     document.querySelector(".icon-add")?.addEventListener("click", async () => {
         const newCard = await CardService.fetchSingleCard();
         if (newCard) {
-            cardsData.push(newCard);
+            cardsData.unshift(newCard);
             uiManager.renderCard(newCard);
+            uiManager.renderCards(cardsData);
+            scrollTo(10, 10);
         }
     });
 
@@ -41,7 +43,7 @@ export class LoadingScreenManager {
 
     // Gestione della visualizzazione preferiti
     let showOnlyFavorites: boolean = false;
-    document.querySelectorAll(".user-likes")?.forEach((n)=>n.addEventListener("click", () => {
+    document.querySelectorAll(".user-likes")?.forEach((n) => n.addEventListener("click", () => {
         showOnlyFavorites = !showOnlyFavorites;
 
         // Filtra le card preferite o mostra tutte
@@ -51,11 +53,21 @@ export class LoadingScreenManager {
 
         uiManager.renderCards(updatedCards);
 
-        // Aggiorna il testo del pulsante "Mostra preferiti"
-        const loveButton = document.querySelector(".user-likes") as HTMLElement;
-        loveButton.textContent = showOnlyFavorites
-            ? "Mostra tutte le card"
-            : "Mostra preferiti";
+        const loveButton: HTMLElement | null = document.querySelector(".user-likes") as HTMLElement;
+        const loveButtonIcon: HTMLElement | null = document.querySelector(".user-likes i") as HTMLElement;
+        const addButton: HTMLElement | null = document.querySelector(".icon-add") as HTMLElement;
+
+        if (loveButton && showOnlyFavorites) {
+            loveButtonIcon.classList.add("icon-heart-full");
+            loveButtonIcon.classList.remove("icon-heart-outline");
+            addButton.style.visibility = "hidden";
+        }
+        else {
+            loveButtonIcon.classList.remove("icon-heart-full");
+            loveButtonIcon.classList.add("icon-heart-outline");
+            addButton.style.visibility = "visible";
+        }
+
     }));
     const menuVoices: NodeListOf<HTMLImageElement> | null = document.querySelectorAll(".voice") as NodeListOf<HTMLImageElement>;
 
